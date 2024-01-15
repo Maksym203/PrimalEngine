@@ -380,6 +380,8 @@ update_status ModuleEditor::DrawEditor()
             ImGui::End();
         }
 
+        ViewCollapsingHeader();
+
         if (ImGui::BeginMenu("Help"))
         {
             if (ImGui::MenuItem("About..."))
@@ -393,8 +395,6 @@ update_status ModuleEditor::DrawEditor()
         //CreateAboutModalPopup(showModalAbout);
         CreateAboutWindow(showAboutWindow);
         CreateConsoleWindow(isActiveConsole);
-
-        ViewCollapsingHeader();
 
         ImGui::SameLine(ImGui::GetWindowWidth() / 2 - 37);
         {
@@ -698,15 +698,13 @@ void ModuleEditor::CreateAboutWindow(bool& showAboutWindow)
     }
 
     // Basic Info
-    ImGui::Text("Sheesh Engine");
+    ImGui::Text("ABOUT PRIMAL ENGINE");
     ImGui::Separator();
     ImGui::Spacing();
-    ImGui::Text("Venture into the realm of game development with the legendary Sheesh Engine, \na creation born from the collaborative efforts of two visionary minds at CITM.");
-    ImGui::Text("Whether you seek to forge epic tales of heroism or weave enchanting mysteries,\nthis engine is your magical wand.");
-    ImGui::Spacing();
-    if (ImGui::Button("Autors: Oriol Martin Corella & Xiao Shan Costajussa Bellver"))
+    ImGui::Text("By Ivan Bermudez Sagra & Maksym Polupan");
+    if (ImGui::MenuItem("Press here to check our repository"))
     {
-        URLButton("https://github.com/Urii98/SheeeshEngine");
+        ShellExecute(NULL, "open", "https://github.com/Maksym203/PrimalEngine", 0, 0, SW_SHOWNORMAL);
     }
 
     ImGui::Spacing();

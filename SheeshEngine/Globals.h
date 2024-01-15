@@ -67,7 +67,7 @@ enum update_status
 #define WIN_RESIZABLE true
 #define WIN_BORDERLESS false
 #define WIN_FULLSCREEN_DESKTOP false
-#define TITLE "Sheesh Engine"
+#define TITLE "Primal Engine"
 
 //Render
 #define VSYNC true
