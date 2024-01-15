@@ -5,10 +5,17 @@
 #include <string>
 
 struct Channels {
-	std::string name;
-	std::vector<float3> PosKeys;
-	std::vector<Quat> RotKeys;
-	std::vector<float3> ScaleKeys;
+
+	std::map<double, float3> positionKeys;
+	std::map<double, Quat> rotationKeys;
+	std::map<double, float3> scaleKeys;
+	std::map<double, float3>::const_iterator GetNextPosKey(double currentKey) const;
+	std::map<double, Quat>::const_iterator GetNextRotKey(double currentKey) const;
+	std::map<double, float3>::const_iterator GetNextScaleKey(double currentKey) const;
+	std::map<double, float3>::const_iterator GetPreviousPosKey(double currentKey) const;
+	std::map<double, Quat>::const_iterator GetPreviousRotKey(double currentKey) const;
+	std::map<double, float3>::const_iterator GetPreviousScaleKey(double currentKey) const;
+
 };
 
 struct Animation {
