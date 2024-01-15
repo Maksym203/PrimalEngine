@@ -54,9 +54,17 @@ public:
 
 	//Animation stuff
 
+	void StartAnimation();
+	void UpdateAnimations(float dt, bool playing);
+
 	void PushAnimation(Animation* pushedAnimation);
 
-	std::vector<Animation*> animationsList;
+	//void DrawAnimationBones(GameObject* p);
+	void UpdateChannels(const Animation* settings, const Animation* blend, float blendRatio);
+	float3	GetCurrentChannelPosition(const Channels& ch, float currentKey, float3 default) const;
+	Quat	GetCurrentChannelRotation(const Channels& ch, float currentKey, Quat default) const;
+	float3	GetCurrentChannelScale(const Channels& ch, float currentKey, float3 default) const;
+
 	bool animBonesLink = false;
 	bool linkChannels = false;
 	bool showAnimBones = false;
@@ -69,6 +77,7 @@ public:
 	uint currentAnimation = 0;
 	Animation* previousAnimationA = nullptr;
 	Animation* currentAnimationA = nullptr;
-
-
+	GameObject* rootBone = nullptr;
+	std::vector <GameObject*> allBones;
+	std::vector<Animation*> animationsList;
 };

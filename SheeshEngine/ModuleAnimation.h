@@ -30,6 +30,9 @@ struct Animation {
 	std::string name;
 	float duration;
 	float TicksPerSec;
+
+	bool loop = true;
+
 	std::vector<Channels> channels, bakedChannels;
 };
 
