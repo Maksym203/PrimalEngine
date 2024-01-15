@@ -109,7 +109,7 @@ void ModuleAnimation::SaveCurrentChannel(const Channels& channel, char** cursor)
 	*cursor += sizeof(uint) * 3;
 
 	SaveCurrentChannelKeys(channel.positionKeys, cursor);
-	SaveCurrentChannelKeys(channel.rotationKeys, cursor);
+	SaveCurrentChannelKeysWithQuaternion(channel.rotationKeys, cursor);
 	SaveCurrentChannelKeys(channel.scaleKeys, cursor);
 }
 
@@ -123,6 +123,19 @@ void ModuleAnimation::SaveCurrentChannelKeys(const std::map<double, float3>& map
 
 		memcpy(*cursor, &it->second, sizeof(float) * 3);
 		*cursor += sizeof(float) * 3;
+	}
+}
+
+void ModuleAnimation::SaveCurrentChannelKeysWithQuaternion(const std::map<double, Quat>& map, char** cursor) {
+	std::map<double, Quat>::const_iterator it = map.begin();
+
+	for (it = map.begin(); it != map.end(); it++)
+	{
+		memcpy(*cursor, &it->first, sizeof(double));
+		*cursor += sizeof(double);
+
+		memcpy(*cursor, &it->second, sizeof(float) * 4);
+		*cursor += sizeof(float) * 4;
 	}
 }
 

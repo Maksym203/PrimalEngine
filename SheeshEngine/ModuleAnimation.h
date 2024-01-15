@@ -45,6 +45,7 @@ public:
 	uint ChannelSizeNumber(const Channels& channel);
 	void SaveCurrentChannel(const Channels& channel, char** cursor);
 	void SaveCurrentChannelKeys(const std::map<double, float3>& map, char** cursor);
+	void SaveCurrentChannelKeysWithQuaternion(const std::map<double, Quat>& map, char** cursor);
 	void LoadNewChannel(Channels& channel, const char** cursor);
 	void LoadNewChannelKeys(std::map<double, float3>& map, const char** cursor, uint size);
 	void LoadNewChannelKeys(std::map<double, Quat>& map, const char** cursor, uint size);
