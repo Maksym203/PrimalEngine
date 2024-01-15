@@ -13,6 +13,7 @@
 #include "ModuleScene.h"
 #include"ModuleHierarchy.h"
 #include "JsonParser.h"
+#include "ModuleAnimation.h"
 
 #include<vector>
 
@@ -35,6 +36,7 @@ public:
 	ModuleTexture* textures;
 	ModuleScene* scene;
 	ModuleHierarchy* hierarchy;
+	ModuleAnimation* animation;
 
 private:
 

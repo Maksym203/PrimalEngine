@@ -375,6 +375,9 @@
     <ClInclude Include="ImGuismo\ImZoomSlider.h">
       <Filter>Sources\ImGuizmo</Filter>
     </ClInclude>
+    <ClInclude Include="ModuleAnimation.h">
+      <Filter>Sources\Modules\Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="log.cpp">
@@ -592,6 +595,9 @@
     </ClCompile>
     <ClCompile Include="ImGuismo\ImSequencer.cpp">
       <Filter>Sources\ImGuizmo</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleAnimation.cpp">
+      <Filter>Sources\Modules\Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
