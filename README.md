@@ -23,6 +23,7 @@ Maksym Polupan: [Maksym203](https://github.com/Maksym203)
 * Serialization (Configuration & Scene json files)
 * Play/Pause/Stop
 * Camera (Component, mouse picking & frustum culling)
+* **Skeletal Animation (WIP)**
 
 ## How to use the engine
 ### Basic camera movement
