@@ -15,6 +15,16 @@ class ComponentTransform;
 class ComponentMesh;
 class ComponentMaterial;
 class ComponentCamera;
+
+struct AnimationFragment
+{
+	AnimationFragment();
+	char name[32];
+	float startFrame, endFrame;
+	bool loop;
+	Animation* originalAnimation;
+};
+
 class GameObject
 {
 public:
@@ -62,7 +72,15 @@ public:
 
 	void StartAnimation();
 
-	void UpdateAnimations(float dt, bool playing);
+	void UpdateAnimations(float dt);
+
+	void DeleteSelectedAnimation(Animation* anim);
+
+	void PauseAnimation();
+
+	void ResumeAnimation();
+
+	void PlayAnimation(Animation* anim, float blendDuration = 0.2f, float Speed = 1.0f);
 
 	void PushAnimation(Animation* pushedAnimation);
 
@@ -75,6 +93,17 @@ public:
 
 	float3	GetCurrentChannelScale(const Channels& ch, float currentKey, float3 default) const;
 
+	void AddAnimationClip(Animation* anim);
+
+	std::vector<AnimationFragment> clips;
+	AnimationFragment* selectedClip = nullptr;
+
+	Animation* AnimateFragment(AnimationFragment clip);
+
+	void SaveBone(GameObject* bones);
+
+	bool FindMainBone();
+
 	bool animBonesLink = false;
 
 	bool linkChannels = false;
@@ -83,7 +112,9 @@ public:
 
 	float currentTime = 0.f;
 
-	bool isAnimationPlaying = false;
+	bool isAnimationPlaying = true;
+
+	float animationSpeed = 1.f;
 
 	bool hasAnimationStarted = false;
 
@@ -101,6 +132,13 @@ public:
 
 	GameObject* rootBone = nullptr;
 
-	std::map <GameObject*, Channels*> allBones;
+	uint rootBoneIDnum;
+
+	Channels* oneBone;
+
+	std::map <GameObject*, Channels*> currentAnimationBone;
+	std::map <GameObject*, Channels*> previousAnimationBone;
+
+	std::vector<GameObject*> allBones;
 	std::vector<Animation*> animationsList;
 };
