@@ -45,4 +45,4 @@ While Right Clicking:
 * Zoom in/out with the mouse wheel
 
 ## Current version
-The engine has the animation channels practically made, unfortunately the implementation of the bones is missing for the animations to work.
+The engine has the animation channels practically done, unfortunately the implementation of the bones is not finished, so the animations cannot work yet.
