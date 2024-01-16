@@ -8,13 +8,13 @@ Primal Engine is a videogame engine for 3rd grade subject 'Game Engines' of the 
 
 **Iván Bermúdez Sagra**
 
-![Ivan](https://github.com/Maksym203/PrimalEngine/blob/MainSkeletal/docs/images/Ivan.jpg)
+![Ivan](https://github.com/Maksym203/PrimalEngine/assets/99950357/06fab285-dccd-4691-a114-78c96f71b093)
 
 Tareas
 
 **Maksym Polupan**
 
-<img src="https://github.com/Maksym203/PrimalEngine/blob/MainSkeletal/docs/images/Maksym.jpg" width="612" height="612">
+![Maksym](https://github.com/Maksym203/PrimalEngine/assets/99950357/e4c2f7b0-2f04-41c3-9da0-a85f7c149c2b)
 
 Tareas
 
