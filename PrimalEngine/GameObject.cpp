@@ -257,35 +257,22 @@ void GameObject::PushAnimation(Animation* pushedAnimation) {
 
 }
 
-void GameObject::AddAnimationClip(Animation* animation) {
-	if (animation != nullptr) {
-		AnimationFragment clip;
-
-		strcpy(clip.name, animation->name.c_str());
-		clip.startFrame = animation->initTimeAnim;
-		clip.endFrame = animation->initTimeAnim + animation->duration;
-		clip.originalAnimation = animation;
-
-		clips.push_back(clip);
-	}
-}
 
 void GameObject::StartAnimation() {
 	if (rootBone == nullptr) {
 		if (!allBones.empty()) {
-			rootBone == allBones[0];
+			rootBone == allBones.begin()->first;
 		}
 		else {
-			FindMainBone();
 			return;
 		}
 	}
 }
 
-void GameObject::UpdateAnimations(float dt) {
+void GameObject::UpdateAnimations(float dt, bool playing) {
 
 	// Update Current Animation
-	if (this->isAnimationPlaying) {
+	if (playing) {
 		if (!hasAnimationStarted) { StartAnimation(); }
 		else {
 
@@ -316,17 +303,14 @@ void GameObject::UpdateAnimations(float dt) {
 				time += dt;
 
 				currentAnimation = dt * currentAnimationA->TicksPerSec;
-				currentAnimation += currentAnimationA->initTimeAnim;
-				if (currentAnimationA->loop == true) {
-					time = 0.0f;
-				}
+
 				UpdateChannels(currentAnimationA, blendRatio > 0.0f ? previousAnimationA : nullptr, blendRatio);
 			}
 		}
 	}
 
 	// Draw bones if needed
-	if (showAnimBones && rootBone != nullptr) {
+	if (showAnimBones) {
 		/*DrawAnimationBones(rootBone);*/
 	}
 }
@@ -343,51 +327,12 @@ void GameObject::UpdateAnimations(float dt) {
 //	}
 //}
 
-bool GameObject::FindMainBone()
-{
-	bool ret = true;
-	if (rootBoneIDnum != 0)
-	{
-		for (int i = 0; i < App->editor->gameObjects.size(); i++) {
-			if (App->editor->gameObjects[i]->ID = rootBoneIDnum) {
-				rootBone = App->editor->gameObjects[i];
-			}
-		}
-
-		if (rootBone == nullptr)
-		{
-			rootBoneIDnum = 0;
-			ret = false;
-		}
-		else
-		{
-			allBones.clear();
-			SaveBone(rootBone);
-		}
-
-		if (this-> != nullptr) {
-			this->mesh->SetRootBone(rootBone); 
-		}
-	}
-
-	return ret;
-}
-
-void GameObject::SaveBone(GameObject* go) {
-	allBones.push_back(go);
-
-	for (int i = 0; i < go->mChildren.size(); i++)
-	{
-		SaveBone(go->mChildren[i]);
-	}
-}
-
 void GameObject::UpdateChannels(const Animation* settings, const Animation* blend, float blendRatio) {
 	uint currentFrame = currentAnimation;
 	uint prevBlendFrame = 0;
 
 	if (blend != nullptr) {
-		prevBlendFrame = (blend->TicksPerSec * previousAnimation) + blend->initTimeAnim;
+		prevBlendFrame = blend->TicksPerSec * previousAnimation;
 	}
 
 	std::map<GameObject*, Channels*>::iterator createBones;

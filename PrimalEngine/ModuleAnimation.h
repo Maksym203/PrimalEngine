@@ -33,8 +33,6 @@ struct Animation {
 	std::string name;
 	float duration;
 	float TicksPerSec;
-	uint initTimeAnim = 0;
-	float time;
 
 	bool loop = true;
 
