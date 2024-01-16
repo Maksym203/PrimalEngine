@@ -5,6 +5,7 @@
 #include "ImGui/imgui.h"
 #include <vector>
 #include <string>
+#include "glmath.h"
 
 class ComponentTransform : public Component
 {
@@ -29,6 +30,7 @@ public:
 	void setScale(float3 sca);
 
 	void SetTransformMatrixW(float4x4 matrix);
+	void SetTransform(vec3 pos, vec3 rot, vec3 scale);
 
 	void PrintInspector();
 	void calculateMatrix();
@@ -36,6 +38,7 @@ public:
 	float3 position;
 	float3 rotation;
 	float3 scale;
+
 private:
 
 	float4x4 matrix;

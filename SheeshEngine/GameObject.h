@@ -6,6 +6,7 @@
 #include "MathGeoLib/include/Math/float3.h"
 #include <math.h>
 #include <vector>
+#include "glmath.h"
 
 enum class ComponentType;
 enum class GeometryType;
