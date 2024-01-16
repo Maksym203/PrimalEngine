@@ -8,13 +8,13 @@ Primal Engine is a videogame engine for 3rd grade subject 'Game Engines' of the 
 
 **Iván Bermúdez Sagra**
 
-foto
+![Ivan](https://github.com/Maksym203/PrimalEngine/blob/MainSkeletal/docs/images/Ivan.jpg)
 
 Tareas
 
 **Maksym Polupan**
 
-foto
+<img src="https://github.com/Maksym203/PrimalEngine/blob/MainSkeletal/docs/images/Maksym.jpg" width="612" height="612">
 
 Tareas
 
@@ -40,17 +40,17 @@ Gifs
 ## Controls
 
 ### Basic camera movement
-* Hold Left Shift: Movement speed up.
-* Left/Right Arrow: Move left/right.
-* Up/Down Arrow: Zoom in/out.
-* F: Focus camera around the geometry.
+* **Hold Left Shift:** Movement speed up.
+* **Left/Right Arrow:** Move left/right.
+* **Up/Down Arrow:** Zoom in/out.
+* **F:** Focus camera around the geometry.
 
 ### Flythrough mode
-While Right Clicking:
+**While Right Clicking:**
 * Free look around.
-* A/D: Move left/right.
-* W/S: Zoom in/out.
-* Q/E: Move up/down.
+* **A/D:** Move left/right.
+* **W/S:** Zoom in/out.
+* **Q/E:** Move up/down.
 
 ### Orbit camera
 * Left Alt + Left Clicking
