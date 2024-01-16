@@ -111,4 +111,3 @@ enum update_status
 #define PYRAMID "Assets/Models/Pyramid.fbx"
 #define CYLINDER "Assets/Models/Cylinder.fbx"
 #define TORUS "Assets/Models/Torus.fbx"
-#define SUZZANE "Assets/Models/Suzanne.fbx"

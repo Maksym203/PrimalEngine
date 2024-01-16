@@ -246,12 +246,6 @@ update_status ModuleEditor::DrawEditor()
                 PrimitivesGeomtriesLibrary::InstanciatePrimitiveGeometry(GeometryType::P_TORUS);
             }
 
-            if (ImGui::MenuItem(" SUZANNE  "))
-            {
-                PrimitivesGeomtriesLibrary::InstanciatePrimitiveGeometry(GeometryType::P_SUZANNE);
-            }
-
-
             ImGui::EndMenu();
         }
      

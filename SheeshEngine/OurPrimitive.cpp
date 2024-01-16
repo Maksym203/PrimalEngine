@@ -82,13 +82,6 @@ GameObject* PrimitivesGeomtriesLibrary::InstanciatePrimitiveGeometry(GeometryTyp
             gameObject->Stype = GeometryType::P_TORUS;
             return gameObject;
             break;
-        case GeometryType::P_SUZANNE:
-            gameObject = App->assimpMeshes->LoadFile("Assets/Models/suzanne.fbx");
-            aux = "Suzanne";
-            gameObject->name = aux;
-            gameObject->Stype = GeometryType::P_SUZANNE;
-            return gameObject;
-            break;
 
         default:
 
