@@ -42,7 +42,7 @@ public:
 	ComponentCamera* GetComponentCamera();
 
 
-	void SetPendingToDelete(bool deleteGO) { isTimetoDelete = deleteGO; };
+	void SetPendingToDelete(bool delete1) { isTimetoDelete = delete1; };
 
 	bool isTimetoDelete;
 	bool isActive;
@@ -68,7 +68,7 @@ public:
 
 	float3	GetCurrentChannelPosition(const Channels& ch, float currentKey, float3 default) const;
 
-	Quat	GetCurrentChannelRotation(const Channels& ch, float currentKey, Quat default) const;
+	float3	GetCurrentChannelRotation(const Channels& ch, float currentKey, float3 default) const;
 
 	float3	GetCurrentChannelScale(const Channels& ch, float currentKey, float3 default) const;
 
@@ -98,6 +98,6 @@ public:
 
 	GameObject* rootBone = nullptr;
 
-	std::vector <GameObject*> allBones;
+	std::map <GameObject*, Channels*> allBones;
 	std::vector<Animation*> animationsList;
 };

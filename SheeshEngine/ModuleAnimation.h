@@ -10,14 +10,14 @@
 struct Channels {
 
 	std::map<double, float3> positionKeys;
-	std::map<double, Quat> rotationKeys;
+	std::map<double, float3> rotationKeys;
 	std::map<double, float3> scaleKeys;
 	std::string name;
 	std::map<double, float3>::const_iterator GetNextPosKey(double currentKey) const;
-	std::map<double, Quat>::const_iterator GetNextRotKey(double currentKey) const;
+	std::map<double, float3>::const_iterator GetNextRotKey(double currentKey) const;
 	std::map<double, float3>::const_iterator GetNextScaleKey(double currentKey) const;
 	std::map<double, float3>::const_iterator GetPreviousPosKey(double currentKey) const;
-	std::map<double, Quat>::const_iterator GetPreviousRotKey(double currentKey) const;
+	std::map<double, float3>::const_iterator GetPreviousRotKey(double currentKey) const;
 	std::map<double, float3>::const_iterator GetPreviousScaleKey(double currentKey) const;
 
 };
@@ -36,7 +36,7 @@ struct Animation {
 
 	bool loop = true;
 
-	std::vector<Channels> channels, bakedChannels;
+	std::map < std::string, Channels> channels, bakedChannels;
 };
 
 struct aiAnimation;
@@ -51,8 +51,6 @@ public:
 	uint ChannelSizeNumber(const Channels& channel);
 	void SaveCurrentChannel(const Channels& channel, char** cursor);
 	void SaveCurrentChannelKeys(const std::map<double, float3>& map, char** cursor);
-	void SaveCurrentChannelKeysWithQuaternion(const std::map<double, Quat>& map, char** cursor);
 	void LoadNewChannel(Channels& channel, const char** cursor);
 	void LoadNewChannelKeys(std::map<double, float3>& map, const char** cursor, uint size);
-	void LoadNewChannelKeys(std::map<double, Quat>& map, const char** cursor, uint size);
 };

@@ -27,7 +27,17 @@ Animation* ModuleAnimation::LoadAnimation(aiAnimation* anim) {
 		for (int j = 0; j < anim->mChannels[i]->mNumRotationKeys; j++)
 		{
 			aiQuaternion aiValue = anim->mChannels[i]->mRotationKeys[j].mValue;
-			Quat rotationKey = Quat(aiValue.x, aiValue.y, aiValue.z, aiValue.w);
+			Quat q = Quat(aiValue.x, aiValue.y, aiValue.z, aiValue.w);
+			float3 rotationKey;
+			double sinr_cosp = 2 * (q.w * q.x + q.y * q.z);
+			double cosr_cosp = 1 - 2 * (q.x * q.x + q.y * q.y);
+			rotationKey.x = std::atan2(sinr_cosp, cosr_cosp);
+			double sinp = std::sqrt(1 + 2 * (q.w * q.x - q.y * q.z));
+			double cosp = std::sqrt(1 - 2 * (q.w * q.x - q.y * q.z));
+			rotationKey.y = 2 * std::atan2(sinp, cosp) - M_PI / 2;
+			double siny_cosp = 2 * (q.w * q.z + q.x * q.y);
+			double cosy_cosp = 1 - 2 * (q.y * q.y + q.z * q.z);
+			rotationKey.z = std::atan2(siny_cosp, cosy_cosp);
 			channel.rotationKeys[anim->mChannels[i]->mRotationKeys[j].mTime] = rotationKey;
 		}
 		for (int j = 0; j < anim->mChannels[i]->mNumScalingKeys; j++)
@@ -37,7 +47,7 @@ Animation* ModuleAnimation::LoadAnimation(aiAnimation* anim) {
 			channel.scaleKeys[anim->mChannels[i]->mScalingKeys[j].mTime] = scaleKey;
 		}
 
-		animation->channels.push_back(channel);
+		animation->channels[channel.name] = channel;
 	}
 	LOG("Loaded %s Animation with %.2f duration.", animation->name.c_str(), animation->duration);
 	return animation;
@@ -48,7 +58,7 @@ std::map<double, float3>::const_iterator Channels::GetNextPosKey(double currentK
 	return positionKeys.upper_bound(currentKey);
 }
 
-std::map<double, Quat>::const_iterator Channels::GetNextRotKey(double currentKey) const
+std::map<double, float3>::const_iterator Channels::GetNextRotKey(double currentKey) const
 {
 	return rotationKeys.upper_bound(currentKey);
 }
@@ -68,9 +78,9 @@ std::map<double, float3>::const_iterator Channels::GetPreviousPosKey(double curr
 	return ret;
 }
 
-std::map<double, Quat>::const_iterator Channels::GetPreviousRotKey(double currentKey) const
+std::map<double, float3>::const_iterator Channels::GetPreviousRotKey(double currentKey) const
 {
-	std::map<double, Quat>::const_iterator ret = rotationKeys.lower_bound(currentKey);
+	std::map<double, float3>::const_iterator ret = rotationKeys.lower_bound(currentKey);
 	if (ret != rotationKeys.begin())
 		ret--;
 	return ret;
@@ -109,7 +119,7 @@ void ModuleAnimation::SaveCurrentChannel(const Channels& channel, char** cursor)
 	*cursor += sizeof(uint) * 3;
 
 	SaveCurrentChannelKeys(channel.positionKeys, cursor);
-	SaveCurrentChannelKeysWithQuaternion(channel.rotationKeys, cursor);
+	SaveCurrentChannelKeys(channel.rotationKeys, cursor);
 	SaveCurrentChannelKeys(channel.scaleKeys, cursor);
 }
 
@@ -123,19 +133,6 @@ void ModuleAnimation::SaveCurrentChannelKeys(const std::map<double, float3>& map
 
 		memcpy(*cursor, &it->second, sizeof(float) * 3);
 		*cursor += sizeof(float) * 3;
-	}
-}
-
-void ModuleAnimation::SaveCurrentChannelKeysWithQuaternion(const std::map<double, Quat>& map, char** cursor) {
-	std::map<double, Quat>::const_iterator it = map.begin();
-
-	for (it = map.begin(); it != map.end(); it++)
-	{
-		memcpy(*cursor, &it->first, sizeof(double));
-		*cursor += sizeof(double);
-
-		memcpy(*cursor, &it->second, sizeof(float) * 4);
-		*cursor += sizeof(float) * 4;
 	}
 }
 
@@ -181,19 +178,5 @@ void ModuleAnimation::LoadNewChannelKeys(std::map<double, float3>& map, const ch
 		*cursor += sizeof(float) * 3;
 
 		map[time] = float3(data);
-	}
-}
-
-void ModuleAnimation::LoadNewChannelKeys(std::map<double, Quat>& map, const char** cursor, uint size) {
-	for (uint i = 0; i < size; i++)
-	{
-		double time;
-		memcpy(&time, *cursor, sizeof(double));
-		*cursor += sizeof(double);
-		float data[4];
-		memcpy(&data, *cursor, sizeof(float) * 4);
-		*cursor += sizeof(float) * 4;
-
-		map[time] = Quat(data);
 	}
 }
