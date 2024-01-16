@@ -43,3 +43,6 @@ While Right Clicking:
 ### Mouse wheel functions
 * Pan movement (Free move in x & y) while clicking the mouse wheel button.
 * Zoom in/out with the mouse wheel
+
+## Current version
+The engine has the animation channels practically made, unfortunately the implementation of the bones is missing for the animations to work.
