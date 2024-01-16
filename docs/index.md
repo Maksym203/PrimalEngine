@@ -46,6 +46,8 @@ The engine has the animation channels practically done, unfortunately the implem
 
 ## Video
 
+<iframe width="700" height="560" src="https://www.youtube.com/embed/hFJ56Dz8K1U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ## Controls
 
 ### Basic camera movement
