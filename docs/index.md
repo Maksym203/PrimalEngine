@@ -1,6 +1,4 @@
-# Guardians of Zenith
-
-![mainmenu_final](https://github.com/Lluc-Studios/Guardians-of-Zenith/assets/99950357/119ad8f6-81ff-4c52-a766-280d6376a7b0)
+# Primal Engine
 
 ## Introduction
 
@@ -8,13 +6,13 @@ Primal Engine is a videogame engine for 3rd grade subject 'Game Engines' of the 
 
 ## Team
 
-Iván Bermúdez Sagra
+**Iván Bermúdez Sagra**
 
 foto
 
 Tareas
 
-Maksym Polupan
+**Maksym Polupan**
 
 foto
 
@@ -70,4 +68,24 @@ Check out:
 
 ## License
 
-This project is licensed under an unmodified MIT license, which is an OSI-certified license that allows static linking with closed source software. Check [LICENSE](LICENSE) for further details.
+MIT License
+
+Copyright (c) 2023 Ivan Bermudez Sagra & Maksym Polupan
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
