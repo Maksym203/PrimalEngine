@@ -271,9 +271,6 @@ update_status ModuleRenderer3D::PreUpdate(float dt)
 
 	BindCameraBuffer(App->camera->camera);
 
-	// light 0 on cam pos
-	/*lights[0].SetPos(App->camera->camera->frustum.pos.x, App->camera->camera->frustum.pos.y, App->camera->camera->frustum.pos.z);*/
-
 	lights[0].SetPos(0, 0, 0);
 
 	for(uint i = 0; i < MAX_LIGHTS; ++i)
@@ -388,8 +385,6 @@ update_status ModuleRenderer3D::PostUpdate(float dt)
 	//glVertex3d(xFinal, yFinal, zFinal);
 	//glEnd();
 	//glLineWidth(1.0f);
-	
-	
 
 	if (App->editor->DrawEditor() == UPDATE_STOP)
 	{

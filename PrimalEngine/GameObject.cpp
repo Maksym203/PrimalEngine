@@ -70,7 +70,6 @@ void GameObject::AddComponent(Component* component)
 
 void GameObject::Update()
 {
-	// No tots els children o components tenen un update
 	for (size_t i = 0; i < mChildren.size(); ++i)
 	{
 		mChildren[i]->Update();
@@ -194,8 +193,6 @@ void GameObject::AttachChild(GameObject* child)
 {
 	child->mParent = this;
 	mChildren.push_back(child);
-	//child->transform
-	//child->transform
 }
 
 
@@ -278,7 +275,7 @@ void GameObject::UpdateAnimations(float dt, bool playing) {
 
 			if (currentAnimationA != nullptr) {
 
-				//Updating animation blend // Este comentario tiene ya 3 generaciones
+				//Updating animation blend
 				float blendRatio = 0.0f;
 				if (blendingDuration > 0.0f)
 				{
@@ -309,23 +306,11 @@ void GameObject::UpdateAnimations(float dt, bool playing) {
 		}
 	}
 
-	// Draw bones if needed
+	
 	if (showAnimBones) {
-		/*DrawAnimationBones(rootBone);*/
+		
 	}
 }
-
-//void GameObject::DrawAnimationBones(GameObject* p)
-//{
-//	if (!p->mChildren.empty()) {
-//		for (int i = 0; i < p->mChildren.size(); i++) {
-//			p->mChildren[i]->DrawAnimationBones(p->mChildren[i]);
-//
-//			std::vector<float3> line;
-//
-//		}
-//	}
-//}
 
 void GameObject::UpdateChannels(const Animation* settings, const Animation* blend, float blendRatio) {
 	uint currentFrame = currentAnimation;

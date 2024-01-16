@@ -122,7 +122,6 @@ update_status ModuleInput::PreUpdate(float dt)
 				}
 				else if (extension == "png" || extension == "dds" || extension == "PNG" || extension == "DDS")
 				{
-					/*App->textures->LoadTexture(dropped_filedir);*/
 					if (App->hierarchy->objSelected != nullptr && App->hierarchy->objSelected->Stype != GeometryType::EMPTY)
 					{
 						if (App->hierarchy->objSelected->GetComponentTexture()) {
