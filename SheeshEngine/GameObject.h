@@ -5,6 +5,7 @@
 #include "ModuleAnimation.h"
 #include "MathGeoLib/include/Math/float3.h"
 #include <math.h>
+#include <vector>
 
 enum class ComponentType;
 enum class GeometryType;

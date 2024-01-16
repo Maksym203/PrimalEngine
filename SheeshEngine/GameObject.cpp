@@ -340,24 +340,23 @@ void GameObject::UpdateChannels(const Animation* settings, const Animation* blen
 	{
 		Channels& channel = *createBones->second;
 
-		float3 position = GetCurrentChannelPosition(channel, currentFrame, float3(createBones->first->GetPos().x, createBones->first->GetPos().y, createBones->first->GetPos().z));
-		float3 rotation = GetCurrentChannelRotation(channel, currentFrame, float3(createBones->first->GetRot().x, createBones->first->GetRot().y, createBones->first->GetRot().z));
-		float3 scale = GetCurrentChannelScale(channel, currentFrame, float3(createBones->first->GetScale().x, createBones->first->GetScale().y, createBones->first->GetScale().z));
-
-		// BLEND S
+		float3 position = GetCurrentChannelPosition(channel, currentFrame, float3(createBones->first->transform->getPosition().x, createBones->first->transform->getPosition().y, createBones->first->transform->getPosition().z));
+		float3 rotation = GetCurrentChannelRotation(channel, currentFrame, float3(createBones->first->transform->getRotation().x, createBones->first->transform->getRotation().y, createBones->first->transform->getRotation().z));
+		float3 scale = GetCurrentChannelScale(channel, currentFrame, float3(createBones->first->transform->getScale().x, createBones->first->transform->getScale().y, createBones->first->transform->getScale().z));
+	
 		if (blend != nullptr)
 		{
 			std::map<GameObject*, Channels*>::iterator foundChannel = allBones.find(createBones->first);
 			if (foundChannel != allBones.end()) {
 				const Channels& blendChannel = *foundChannel->second;
 
-				position = float3::Lerp(GetCurrentChannelPosition(blendChannel, prevBlendFrame, float3(createBones->first->GetPos().x, createBones->first->GetPos().y, createBones->first->GetPos().z)), position, blendRatio);
-				rotation = float3::Lerp(GetCurrentChannelRotation(blendChannel, prevBlendFrame, float3(createBones->first->GetRot().x, createBones->first->GetRot().y, createBones->first->GetRot().z)), rotation, blendRatio);
-				scale = float3::Lerp(GetCurrentChannelScale(blendChannel, prevBlendFrame, float3(createBones->first->GetScale().x, createBones->first->GetScale().y, createBones->first->GetScale().z)), scale, blendRatio);
+				position = float3::Lerp(GetCurrentChannelPosition(blendChannel, prevBlendFrame, float3(createBones->first->transform->getPosition().x, createBones->first->transform->getPosition().y, createBones->first->transform->getPosition().z)), position, blendRatio);
+				rotation = float3::Lerp(GetCurrentChannelRotation(blendChannel, prevBlendFrame, float3(createBones->first->transform->getRotation().x, createBones->first->transform->getRotation().y, createBones->first->transform->getRotation().z)), rotation, blendRatio);
+				scale = float3::Lerp(GetCurrentChannelScale(blendChannel, prevBlendFrame, float3(createBones->first->transform->getScale().x, createBones->first->transform->getScale().y, createBones->first->transform->getScale().z)), scale, blendRatio);
 			}
 		}
 
-		createBones->first->SetTransform(vec3(position.x, position.y, position.z), vec3(rotation.x, rotation.y, rotation.z), vec3(scale.x, scale.y, scale.z));
+		createBones->first->transform->SetTransform(vec3(position.x, position.y, position.z), vec3(rotation.x, rotation.y, rotation.z), vec3(scale.x, scale.y, scale.z));
 	}
 }
 
