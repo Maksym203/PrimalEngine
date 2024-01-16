@@ -10,13 +10,24 @@ Primal Engine is a videogame engine for 3rd grade subject 'Game Engines' of the 
 
 ![Ivan](https://github.com/Maksym203/PrimalEngine/assets/99950357/06fab285-dccd-4691-a114-78c96f71b093)
 
-Tareas
+* Documentation
+* Camera controls
+* Menus
+* Play/Pause/Stop
+* Animation
+* Website
 
 **Maksym Polupan**
 
 ![Maksym](https://github.com/Maksym203/PrimalEngine/assets/99950357/e4c2f7b0-2f04-41c3-9da0-a85f7c149c2b)
 
-Tareas
+* Libraries implementation
+* Docking
+* Buffers
+* FBX Loading
+* Textures
+* Animation
+* Bones
 
 ## Main-core subsystems
 
@@ -31,9 +42,7 @@ Tareas
 
 ## Skeletal Animation
 
-Explicación
-
-Gifs
+The engine has the animation channels practically done, unfortunately the implementation of the bones is not finished, so the animations cannot work yet.
 
 ## Video
 
