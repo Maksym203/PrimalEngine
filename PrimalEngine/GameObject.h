@@ -59,14 +59,12 @@ public:
 	GeometryType Stype;
 
 	//Animation stuff
-
 	void StartAnimation();
 
 	void UpdateAnimations(float dt, bool playing);
 
 	void PushAnimation(Animation* pushedAnimation);
 
-	//void DrawAnimationBones(GameObject* p);
 	void UpdateChannels(const Animation* settings, const Animation* blend, float blendRatio);
 
 	float3	GetCurrentChannelPosition(const Channels& ch, float currentKey, float3 default) const;

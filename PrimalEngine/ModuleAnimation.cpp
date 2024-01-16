@@ -49,7 +49,6 @@ Animation* ModuleAnimation::LoadAnimation(aiAnimation* anim) {
 
 		animation->channels[channel.name] = channel;
 	}
-	LOG("Loaded %s Animation with %.2f duration.", animation->name.c_str(), animation->duration);
 	return animation;
 }
 
@@ -74,7 +73,6 @@ std::map<double, float3>::const_iterator Channels::GetPreviousPosKey(double curr
 	std::map<double, float3>::const_iterator ret = positionKeys.lower_bound(currentKey);
 	if (ret != positionKeys.begin())
 		ret--;
-
 	return ret;
 }
 

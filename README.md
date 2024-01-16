@@ -4,6 +4,7 @@
 Primal Engine is a videogame engine for 3rd grade subject 'Game Engines' of the videogame design and development grade at UPC CITM.
 
 Our Github Link: https://github.com/Maksym203/PrimalEngine
+
 Our Project Website: https://maksym203.github.io/PrimalEngine/
 
 ## Team
@@ -22,6 +23,7 @@ Maksym Polupan: [Maksym203](https://github.com/Maksym203)
 * Serialization (Configuration & Scene json files)
 * Play/Pause/Stop
 * Camera (Component, mouse picking & frustum culling)
+* **Skeletal Animation (WIP)**
 
 ## How to use the engine
 ### Basic camera movement
@@ -43,3 +45,6 @@ While Right Clicking:
 ### Mouse wheel functions
 * Pan movement (Free move in x & y) while clicking the mouse wheel button.
 * Zoom in/out with the mouse wheel
+
+## Current version
+The engine has the animation channels practically done, unfortunately the implementation of the bones is not finished, so the animations cannot work yet.
