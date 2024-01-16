@@ -4,6 +4,7 @@
 #include "MathGeoLib/include/Math/float3.h"
 #include "MathGeoLib/include/Math/float4x4.h"
 #include "ImGuismo/ImGuizmo.h"
+#include "GameObject.h"
 
 
 class ComponentCamera;
@@ -19,6 +20,20 @@ enum class CamStates {
 class ModuleCamera3D : public Module
 {
 public:
+
+	float3 X, Y, Z, Position, Reference;
+
+	ComponentCamera* camera;
+
+	CamStates camState;
+
+	GameObject* mainCamera;
+
+	GameObject* gameCamera;
+
+	ImGuizmo::OPERATION operation;
+	ImGuizmo::MODE mode;
+
 	ModuleCamera3D(Application* app, bool start_enabled = true);
 	~ModuleCamera3D();
 
@@ -33,19 +48,5 @@ public:
 private:
 
 	void MouseRotation(float dx, float dy, float sensitivity);
-
-public:
-
-	
-	float3 X, Y, Z, Position, Reference;
-
-	ComponentCamera* camera;
-	CamStates camState;
-	GameObject* mainCamera;
-	GameObject* gameCamera;
-
-	ImGuizmo::OPERATION operation;
-	ImGuizmo::MODE mode;
-
 	
 };

@@ -3,6 +3,9 @@
 #include "Globals.h"
 
 #include <string>
+#include <math.h>
+#include <iostream>
+#include "MathGeoLib/include/Math/float3.h"
 
 struct Channels {
 

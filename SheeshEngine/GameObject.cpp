@@ -4,6 +4,7 @@
 #include "ComponentMesh.h"
 #include "OurPrimitive.h"
 #include "Application.h"
+#include "ModuleAnimation.h"
 
 
 GameObject::GameObject()
@@ -310,7 +311,7 @@ void GameObject::UpdateAnimations(float dt, bool playing) {
 
 	// Draw bones if needed
 	if (showAnimBones) {
-		DrawAnimationBones(rootBone);
+		/*DrawAnimationBones(rootBone);*/
 	}
 }
 
@@ -331,13 +332,13 @@ void GameObject::UpdateChannels(const Animation* settings, const Animation* blen
 }
 
 float3	GameObject::GetCurrentChannelPosition(const Channels& ch, float currentKey, float3 default) const {
-
+	return default;
 }
 
 Quat	GameObject::GetCurrentChannelRotation(const Channels & ch, float currentKey, Quat default) const {
-
+	return default;
 }
 
 float3	GameObject::GetCurrentChannelScale(const Channels & ch, float currentKey, float3 default) const {
-
+	return default;
 }
