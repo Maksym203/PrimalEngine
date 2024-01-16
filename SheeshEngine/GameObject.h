@@ -48,6 +48,7 @@ public:
 
 	bool isTimetoDelete;
 	bool isActive;
+	float time = 0.f;
 	std::string name;
 
 	GameObject* mParent;

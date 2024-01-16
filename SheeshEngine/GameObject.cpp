@@ -300,7 +300,7 @@ void GameObject::UpdateAnimations(float dt, bool playing) {
 					if (blendingDuration > 0.0f)
 						blendRatio = blendingCurrentTime / blendingDuration;
 				}
-				//time += dt;
+				time += dt;
 
 				currentAnimation = dt * currentAnimationA->TicksPerSec;
 
