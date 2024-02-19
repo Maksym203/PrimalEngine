@@ -8,7 +8,7 @@ Our Github Link: https://github.com/Maksym203/PrimalEngine
 Our Project Website: https://maksym203.github.io/PrimalEngine/
 
 ## Team
-Iván Bermúdez Sagra: [IvanBSupc](https://github.com/IvanBSupc)
+Iván Bermúdez Sagra: [IBSilver](https://github.com/IBSilver)
 
 Maksym Polupan: [Maksym203](https://github.com/Maksym203)
 
